@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/hello', function () {
    return view('hello', ['title' => 'hello world!']);
 });
+
+Route::get('/events', [EventController::class, 'index']);
+
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/category/{id}', [CategoryController::class, 'show']);
+
 
 Route::get('/', function () {
     return view('welcome');
