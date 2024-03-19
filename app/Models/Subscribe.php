@@ -7,23 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Event extends Model
+class Subscribe extends Model
 {
     use HasFactory;
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function category():BelongsTo
+    public function event(): HasMany
     {
-        return $this->belongsTo(Category::class);
-    }
-    public function member(): HasMany
-    {
-        return $this->hasMany(Member::class);
-    }
-    public function subscribe(): BelongsTo
-    {
-        return $this->belongsTo(Subscribe::class);
+        return $this->hasMany(Event::class);
     }
 }

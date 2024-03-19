@@ -19,4 +19,9 @@ class User extends Model
     {
         return $this->belongsTo(Member::class);
     }
+
+    public function subscribe(): hasMany
+    {
+        return $this-> hasMany(Subscribe::class);
+    }
 }
