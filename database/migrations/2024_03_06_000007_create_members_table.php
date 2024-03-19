@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->foreignId('event_id')->references('id')->on('events');
-            $table->id('user_Id');
-            $table->timestamp('reg_at');
+            $table->foreignId('user_Id')->references('id')->on('users');
             $table->foreignId('role_id')->references('id')->on('roles');
+            $table->timestamp('reg_at');
         });
     }
 
