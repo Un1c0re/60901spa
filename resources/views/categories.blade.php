@@ -18,5 +18,6 @@
             </tr>
         @endforeach
     </table>
+    {{$categories->links()}}
 </body>
 </html>
