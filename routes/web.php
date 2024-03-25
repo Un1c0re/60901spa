@@ -33,6 +33,8 @@ Route::post('/event', [EventController::class, 'store']);
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/category/{id}', [CategoryController::class, 'show']);
 
+///////////////////////////////////////////////////////////////////////////////
+
 Route::get('/', function () {
     return view('welcome');
 });

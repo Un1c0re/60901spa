@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Редактирование товара</title>
+    <title>Редактирование мероприятия</title>
     <style>
         .is-invalid { color: red; }
     </style>
 </head>
 <body>
-<h2>Редактирование товара</h2>
+<h2>Редактирование мероприятия</h2>
 <form method="post" action="{{ url('event/update', $event->id) }}">
     @csrf
     @method('POST')

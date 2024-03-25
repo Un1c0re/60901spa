@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Список товаров</title>
+    <title>Список мероприятий</title>
 </head>
 <body>
-<h2>Список товаров</h2>
+<h2>Список мероприятий</h2>
 <table>
     <thead>
     <tr>

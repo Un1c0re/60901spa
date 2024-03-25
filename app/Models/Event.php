@@ -10,6 +10,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Event extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'owner_id',
+        'name',
+        'place',
+        'description',
+        'started_at',
+        'category_id',
+        // Добавьте другие поля по необходимости
+    ];
+
     public $timestamps = false;
     public function user(): BelongsTo
     {

@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Добавление товара</title>
+    <title>Добавление мероприятия</title>
     <style>
         .is-invalid { color: red; }
     </style>
 </head>
 <body>
-<h2>Добавление товара</h2>
+<h2>Добавление мероприятия</h2>
 <form method="post" action="{{ url('event') }}">
+    @csrf
     <label>Организатор:</label>
     <label>
         <input type="text" name="owner_id" value="{{ old('owner_id') }}">
