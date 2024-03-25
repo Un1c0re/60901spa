@@ -38,5 +38,6 @@
     @endforeach
     </tbody>
 </table>
+{{$events->links()}}
 </body>
 </html>

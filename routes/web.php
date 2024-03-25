@@ -23,6 +23,7 @@ Route::get('/hello', function () {
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/event/create', [EventController::class, 'create']);
 Route::get('/event/edit/{id}', [EventController::class, 'edit']);
+Route::get('/event/{id}', [EventController::class, 'index']);
 
 Route::post('/event/update/{id}', [EventController::class, 'update']);
 Route::post('/event/destroy/{id}', [EventController::class, 'destroy']);

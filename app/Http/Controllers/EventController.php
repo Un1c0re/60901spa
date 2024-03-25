@@ -11,9 +11,10 @@ class EventController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('events', ['events'=>Event::all()]);
+        $perpage = $request->perpage ?? 2;
+        return view('events', ['events'=>Event::paginate($perpage)->withQueryString()]);
     }
 
     /**
