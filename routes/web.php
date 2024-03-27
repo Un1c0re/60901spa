@@ -28,12 +28,12 @@ Route::post('/auth', [LoginController::class, 'authenticate'])->name('auth');
 ///////////////////////////////////////////////////////////////////////////////
 
 Route::get('/events', [EventController::class, 'index']);
-Route::get('/event/create', [EventController::class, 'create']);
-Route::get('/event/edit/{id}', [EventController::class, 'edit']);
-Route::get('/event/{id}', [EventController::class, 'index']);
+Route::get('/event/create', [EventController::class, 'create'])->middleware('auth');
+Route::get('/event/edit/{id}', [EventController::class, 'edit'])->middleware('auth');
+Route::get('/event/{id}', [EventController::class, 'index'])->middleware('auth');
 
-Route::post('/event/update/{id}', [EventController::class, 'update']);
-Route::post('/event/destroy/{id}', [EventController::class, 'destroy']);
+Route::post('/event/update/{id}', [EventController::class, 'update'])->middleware('auth');
+Route::post('/event/destroy/{id}', [EventController::class, 'destroy'])->middleware('auth');
 Route::post('/event', [EventController::class, 'store']);
 
 ///////////////////////////////////////////////////////////////////////////////

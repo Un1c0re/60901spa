@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,14 +20,17 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('login');
+            return redirect('/')->intended()->withErrors([
+                'success' => 'Вы успешно вошли в систему',
+            ]);
         }
         return back()->withErrors([
             'error' => 'the provided credentials does not match our records. ',
         ])->onlyInput('email', 'password');
     }
 
-    public function login(Request $request) {
+    public function login(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    {
         return view('login', ['user' => Auth::user()]);
     }
 
@@ -33,6 +39,8 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('login');
+        return redirect('/')->withErrors([
+            'success' => 'Вы успешно вышли из системы',
+        ]);
     }
 }
