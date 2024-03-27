@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
+use \App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/hello', function () {
    return view('hello', ['title' => 'hello world!']);
 });
+
+///////////////////////////////////////////////////////////////////////////////
+
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/auth', [LoginController::class, 'authenticate'])->name('auth');
 
 ///////////////////////////////////////////////////////////////////////////////
 
